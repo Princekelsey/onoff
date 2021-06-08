@@ -15,7 +15,7 @@
   padding: 10px 5px;
   border-radius: 10px;
   border: 1px solid #20c997;
-  margin-bottom: 15px;
+  margin-bottom: 7px;
   box-shadow: -3px 1px 21px -11px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -3px 1px 21px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -3px 1px 21px -11px rgba(0, 0, 0, 0.75);
@@ -56,6 +56,10 @@
 
 .m-t {
   margin-top: 20px;
+}
+
+.m-b {
+  margin-bottom: 10px;
 }
 
 .call-date {

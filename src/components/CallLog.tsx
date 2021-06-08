@@ -10,7 +10,7 @@ interface CallLogProps {
 
 export const CallLog: React.FC<CallLogProps> = ({ calls, date }) => {
   return (
-    <React.Fragment>
+    <div className="m-b">
       <span className="call-date">{displayDate(date)}</span>
       {calls.map((call) => {
         const { phoneNumber, phoneType, date, id } = call;
@@ -27,6 +27,6 @@ export const CallLog: React.FC<CallLogProps> = ({ calls, date }) => {
           </div>
         );
       })}
-    </React.Fragment>
+    </div>
   );
 };
