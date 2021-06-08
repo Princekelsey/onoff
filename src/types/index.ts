@@ -4,3 +4,7 @@ export interface ICallLog {
   id: string;
   phoneType: string;
 }
+
+export interface ILogData {
+  [key: string]: ICallLog[];
+}

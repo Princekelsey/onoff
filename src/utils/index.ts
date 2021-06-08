@@ -1,9 +1,33 @@
-import { ICallLog } from "../types";
+import { ICallLog, ILogData } from "../types";
 import moment, { Moment } from "moment";
 
 const REFERENCE = moment();
 const TODAY = REFERENCE.clone().startOf("day");
 const YESTERDAY = REFERENCE.clone().subtract(1, "days").startOf("day");
+
+/**
+ * Composes calllogs according to date .
+ * @param callLogs list of all logs
+ * @returns Returns an object with date of call as key and array of call logs as value
+ */
+export const composeCallLogs = (callLogs: ICallLog[]): ILogData => {
+  const logData: ILogData = {};
+
+  const sorted = callLogs.sort((a, b) => compare(a, b, "desc"));
+
+  sorted.forEach((log) => {
+    if (logData[moment(log.date).format("YYYY-MM-DD")]) {
+      logData[moment(log.date).format("YYYY-MM-DD")] = [
+        ...logData[moment(log.date).format("YYYY-MM-DD")],
+        { ...log },
+      ];
+    } else {
+      logData[moment(log.date).format("YYYY-MM-DD")] = [{ ...log }];
+    }
+  });
+
+  return logData;
+};
 
 /**
  * Compares calllogs properties for sorting.
